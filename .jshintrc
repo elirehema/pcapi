@@ -1,3 +1,11 @@
 {
-    "esversion": 6
+    "browser": true,
+    "esnext": true,
+    "globals": {},
+    "globalstrict": true,
+    "quotmark": true,
+    "undef": true,
+    "unused": true,
+    "esversion": 8
+   
 }
