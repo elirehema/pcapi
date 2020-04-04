@@ -22,6 +22,7 @@ var validate = require("validate-npm-package-name");
 const fn = '/pci/v1';
 const userRoutes = require("./app/routes/route-users");
 const authRoutes = require("./app/routes/route-auths");
+const ordersRoute = require("./app/routes/router.orders");
 const apartmentsRoute = require("./app/routes/route.computer");
 
 const app = express();
@@ -59,6 +60,7 @@ app.use(bodyParser.json());
 app.use(fn, apartmentsRoute);
 app.use(fn, userRoutes);
 app.use(fn, authRoutes);
+app.use(fn, ordersRoute);
 app.use('/api/doc', express.static('docs'));
 app.use(logErrors);
 app.use(clientErrorHandler);

@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 const constants = require("../config/Constants");
-const Schema =  mongoose.Schema,
+const Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 var ComputersSchema = new Schema({
-    name:{
+    name: {
         type: String,
         required: true
     },
@@ -11,50 +11,59 @@ var ComputersSchema = new Schema({
     type: {
         type: String,
         required: true,
-        default:"Default"
+        default: "Default"
     },
-    manufacture:{
+    manufacture: {
         type: String,
         required: true,
         default: "0.0"
     },
-    ram:{
+    ram: {
         type: String,
         required: true,
         default: "0.0"
     },
-    os:{
+    os: {
         type: String,
         required: true,
         default: "Window"
     },
-    color:{
+    color: {
         type: String,
         required: true,
         default: "Black"
     },
-    description:{
+    description: {
         type: String,
         required: true,
         default: ""
     },
-    thumbnail:{
+    price:{
+        type:String,
+        required:true,
+        default:'0.0'
+    },
+    thumbnail: {
         type: String,
         required: true,
-        default:"https://www.kindpng.com/picc/m/437-4371926_razer-blade-pro-17-inch-gaming-laptop-512gb.png"
+        default: "https://www.kindpng.com/picc/m/437-4371926_razer-blade-pro-17-inch-gaming-laptop-512gb.png"
     },
-    
-   
-    images:{
+
+
+    images: {
         type: Array,
         required: false
-   },
+    },
+    usbs: {
+        type: Number,
+        required: true
+    },
     createdAt: {
         type: Date,
         required: true,
         default: Date.now
     },
-    updatedAt:{
+    updatedAt: {
         type: Date,
         required: true,
         default: Date.now

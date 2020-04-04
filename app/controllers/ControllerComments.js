@@ -13,7 +13,7 @@ exports.getAllComments = async function (req, res) {
                     path: error.path,
                     reason: error.reason,
                     model: error.model
-                })
+                });
             } else {
                 res.json({
                     message: 'Created succesfully...!',
@@ -36,11 +36,11 @@ exports.getCommentsByAnswerId = async function (req, res) {
 
 /** Get All comment of a given  userId **/
 exports.getCommentsByUserId = async function (req, res) {
-    await Comments.findOne({userId: req.params.userId})
+    await Comments.findOne({userId: req.params.userId});
 };
 
 exports.getQuestionCommentors = async function (req, res) {
-    await Comments.findOne({questionId: req.body.questionId})
+    await Comments.findOne({questionId: req.body.questionId});
 };
 
 /** Send Comment To a given question Id **/
@@ -50,12 +50,12 @@ exports.commentQuestionById = async function (req, res) {
     });
 };
 exports.updateCommentById = async function (req, res) {
-    await Comments.findOne({_id: req.params.commentId})
+    await Comments.findOne({_id: req.params.commentId});
 }
 exports.deleteCommentById = async function (req, res, next) {
     await Comments.findOneAndDelete({_id: req.params.commentId}, sort, function (err) {
         if (err) {
-            next(err)
+            next(err);
         }
 
     });

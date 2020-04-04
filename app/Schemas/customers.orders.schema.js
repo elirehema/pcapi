@@ -3,24 +3,24 @@ var mongoose = require('mongoose');
 const constants = require("../config/Constants");
 const Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
-var ExtraCostSchema = new Schema({
-    name: {
+var CustomerOrdersSchema = new Schema({
+    username: {
         type: String,
         required: true,
         default: ""
     },
-    amount: {
+   userphone: {
         type: String,
         required: true,
         default: 0
     },
-    paymenttype: {
+    usermail: {
         type: String,
         required: true,
         default:""
     },
-    termsAndConditions:[{ type: Schema.Types.ObjectId, ref: constants.TERMANDCONDITION_COLLECTION}]
+    productid:{ type: Schema.Types.ObjectId, ref: constants.COMPUTERS_COLLECTION}
 
 });
 
-var ExtraCostSchemas = module.exports = mongoose.model(constants.COSTS_COLLECTION, ExtraCostSchema);
+var CustomerOrders = module.exports = mongoose.model(constants.ORDERS_COLLECTION, CustomerOrdersSchema);

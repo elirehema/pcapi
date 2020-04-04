@@ -82,15 +82,60 @@ exports.createNewComputer = async function (req, res, next) {
         color: req.body.color,
         thumbnail: req.body.thumbnail,
         images: req.body.images,
-        description: req.body.description
+        description: req.body.description,
+        usbs: req.body.usbs,
+        price: req.body.price
       
     });
     // save the user and check for errors
     await pc.save(function (err) {
         if (err) {
-            return res.json({status: err.statusCode, error: err.message});
+            console.log(err.errors);
+            return res.json({status: 400, message: err.message});
         }
         res.json(pc);
     });
 };
 
+exports.updateComputerById = async function (req, res) {
+    await Computers.findById(req.params.pcid, function (err, computer) {
+        if (err) {
+            return res.json({ status: res.statusCode, message: err.message });
+        } 
+
+            computer.name = req.body.name ? req.body.name : computer.name;
+            computer.type = req.body.type ? req.body.type : computer.type;
+            computer.manufacture = req.body.manufacture ? req.body.manufacture : computer.manufacture;
+            computer.ram = req.body.ram ? req.body.ram : computer.ram;
+            computer.os = req.body.os ? req.body.os : computer.os;
+            computer.color = req.body.color ? req.body.color : computer.color;
+            computer.thumbnail = req.body.thumbnail ? req.body.thumbnail: computer.thumbnail;
+            computer.images = req.body.images ? req.body.images : computer.images;
+            computer.description = req.body.description ? req.body.description : computer.description;
+            computer.usbs = req.body.usbs ? req.body.usbs : computer.usbs;
+            computer.price = req.body.price ? req.body.price : computer.price;
+
+           
+            computer.save(function (err) {
+                if (err) {
+                    return res.json({ status: res.statusCode, error: err.message });
+                }
+                return res.json(computer);
+            });
+        
+
+
+    });
+};
+exports.deleteComputerById = async function (req, res) {
+    await Computers.findOneAndRemove({_id: req.params.pcid})
+        .exec(function (err, user) {
+            if (err) {
+                return res.json(err);
+            }
+            return res.json({
+                status: res.statusCode,
+                message: 'Item deleted'
+            });
+        });
+};
