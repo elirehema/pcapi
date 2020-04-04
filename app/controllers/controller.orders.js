@@ -71,14 +71,15 @@ exports.addNewOrderProductId = async function (req, res) {
 };
 
 exports.deleteOrderById = async function (req, res) {
-    await Schemas.findOneAndRemove({_id: req.params.addressId})
-        .exec(function (err, user) {
+    await Schemas.findOneAndRemove({_id: req.params.orderid})
+        .exec(function (err, deleted) {
             if (err) {
                 return res.json(err);
             }
             return res.json({
                 status: res.statusCode,
-                message: 'User deleted'
+                message: 'Item deleted',
+                deleted: deleted
             });
         });
 };
