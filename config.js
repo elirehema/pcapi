@@ -7,5 +7,5 @@ module.exports = {
      LOCAL_MONGO_URI: process.env.LOCAL_MONGO_URI || 'mongodb://127.0.0.1/spring',
 
      //Hosting PORT
-     HOSTING_PORT :  process.env.port || 8080,
+     HOSTING_PORT :  process.env.PORT || 80,
 };

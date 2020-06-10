@@ -73,10 +73,10 @@ var db = mongoose.connection;
 db.on('open', function () {
     console.log('OK');
 });
+const PORT = process.env.PORT || 80;
 
-
-const server = app.listen(config.HOSTING_PORT, function () {
-    console.log("Running RestHub on port " + config.HOSTING_PORT);
+const server = app.listen(PORT, function () {
+    console.log("Running RestHub on port " + PORT);
 });
 
 module.exports = server;
