@@ -1,30 +1,51 @@
 {
-  "name": "server",
+  "name": "rceros",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "DEMO RESTAPI's",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js",
+    "nodemon": "nodemon index.js",
+    "test": "./node_modules/.bin/mocha --reporter mochawesome",
+    "test:watch": "./node_modules/.bin/mocha --reporter mochawesome --watch"
   },
-  "author": "Shreyansa",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elirehema/RestHub.git"
+  },
+  "author": "elirehema paul",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elirehema/RestHub/issues"
+  },
+  "homepage": "https://github.com/elirehema/RestHub#readme",
   "dependencies": {
-    "algoliasearch": "^4.2.0",
-    "aws-sdk": "^2.684.0",
-    "axios": "^0.19.2",
-    "bcrypt-nodejs": "0.0.3",
+    "bcrypt": "^3.0.6",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.26.0",
-    "mongoose": "^5.9.16",
-    "mongoose-algolia": "^1.10.1",
-    "mongoose-deep-populate": "^3.1.1",
-    "morgan": "^1.10.0",
+    "lodash": "^4.17.15",
+    "mongodb": "^3.3.0",
+    "mongoose": "^5.6.10",
+    "mongoose-encryption": "^2.0.2",
+    "mongoose-unique-validator": "^2.0.3",
     "multer": "^1.4.2",
-    "multer-s3": "^2.9.0",
-    "stripe": "^8.56.0"
+    "node": "^8.10.0",
+    "npm": "^6.13.4",
+    "require-dir": "^1.2.0",
+    "socket.io": "^2.2.0",
+    "update-notifier": "^3.0.1",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.10.0",
+    "mocha": "^6.2.2",
+    "mochawesome": "^4.1.0",
+    "nodemon": "^2.0.2"
   }
 }
